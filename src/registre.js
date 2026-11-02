@@ -1,4 +1,4 @@
-// Ajouter et lister les plants.
+   // Ajouter et lister les plants.
 // Fiche : fiches/3-ajouter-lister.md · Vérifier : npm run test:registre
 import { estDateValide, versNombre } from './outils.js';
 
