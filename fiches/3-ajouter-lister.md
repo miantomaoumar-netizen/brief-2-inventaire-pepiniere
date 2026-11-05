@@ -119,7 +119,6 @@ Plant N11 ajouté. L'inventaire compte 11 espèce(s).
     - Le nombre de plants doit être un nombre entier positif ou nul.
   L'inventaire compte toujours 10 espèce(s).
   ```
-
 - Si `demander` renvoie `null` (Ctrl+C), abandonnez l'ajout.
 
 ```text

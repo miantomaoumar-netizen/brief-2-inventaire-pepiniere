@@ -9,7 +9,7 @@ Le responsable d'une pépinière pédagogique a des plants de plusieurs espèces
 - **Besoin professionnel** : structurer un inventaire et appliquer une classification botanique simple à partir d'une fiche de référence.
 - **Geste professionnel** : observer les étiquettes et les organes présentés, reproduire la classification fournie, compter les plants, saisir l'origine du relevé (étiquette, photo ou spécimen, qui a compté, quand). Les identifications incertaines sont signalées au coach.
 
-## Ce que vous construisez
+## Ce que vous construisez9*
 
 ```text
 ==================================================
