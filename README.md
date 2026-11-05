@@ -46,4 +46,6 @@ Le fichier `donnees/plants.json` contient 11 lignes, une par espèce. Chaque lig
 
 CHEICK OUMAR SERIFOU
 https://github.com/miantomaoumar-netizen
-Entraide :
+
+
+Entraide : J'ai fais avec les camarades de classe qui ont eu le meme projet que moi et pour l'agencement de mes idées pour le code j'ai utilisé claude ai
