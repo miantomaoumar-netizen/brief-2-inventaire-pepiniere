@@ -130,8 +130,33 @@ async function main() {
      break;
    }
     
-      case '5':
-        throw new Error('TODO : pas encore codé');
+      case '5': {
+        const parGroupe = syntheseParGroupe(donnees);
+        const abondante = especeLaPlusAbondante(donnees);
+        const faibles = stocksFaibles(donnees, SEUIL_STOCK_FAIBLE);
+
+        console.log(`--- Synthèse de l'inventaire ---`)
+        console.log(`Nombre d'espèces : ${donnees.length}`);
+        console.log(`Stock total : ${totalPlants(donnees)} plants`);
+
+        console.log(`Par groupe botanique :`);
+        for (const [groupe, infos] of Object.entries(parGroupe)) {
+          console.log(` ${groupe} : ${infos.especes} espèce(s), ${infos.plants} plants`);
+        }
+     
+     if (abondante === null) {
+      console.log(`Espèce la plus abondante : aucune donnée`);
+     }else{
+      console.log(`Espèce la plus abondante : ${abondante.id} | ${abondante.nomCommun} | ${abondante.groupe} | ${abondante.nombrePlants} plants | ${abondante.dateReleve}`);
+     }
+
+     console.log(`Stocks faibles (≤ ${SEUIL_STOCK_FAIBLE} plants): ${faibles.length}`);
+     for (const plant of faibles) {
+      console.log(` ${plant.id} | ${plant.nomCommun} | ${plant.groupe} | ${plant.nombrePlants} plants | ${plant.dateReleve}`);
+     }
+    console.log(`Rappel : le seuil de ${SEUIL_STOCK_FAIBLE} plants est un repère pédagogique de suivi, pas une recommandation de production.`);
+    break;
+  }
      
       
       
