@@ -69,13 +69,67 @@ async function main() {
       break;
     }
 
-      case '2':
+      case '2': 
       console.log(listerPlants(donnees));
       break;
 
       
-      case '3': 
-      case '4':
+      case '3': {
+        console.log('--- Rechercher ---');
+        console.log('1. Par code');
+        console.log('2. Par nom commun');
+        console.log("3.espèces d'un groupe botanique");
+        const sousChoix = await demander('Votre choix : ')
+        if (sousChoix === null) 
+        break;
+
+        if (sousChoix === '1'){
+          const saisie = await demander('code : ');
+          if (saisie === null)
+            break;
+          const code = saisie.toUpperCase();
+          const plant = trouverParId(donnees, code);
+          if (plant) {
+            console.log(formaterPlant(plant));
+           }else{ 
+            console.log(`Plant ${code} introuvable.`);
+          }
+           }else if (sousChoix === '2') {
+            const saisie = await demander(`Nom ou partie du nom : `);
+            if (saisie === null)
+              break;
+            const texte = saisie.toLowerCase();
+            const trouves = rechercherParNom(donnees, texte);
+            console.log(`${trouves.length} espèce(s) dont le nom contient « ${texte} » :`);
+            console.log(listerPlants(trouves));
+           }else if (sousChoix === '3') {
+            const saisie = await demander(`Groupe(angiosperme ou gymnosperme):`);
+            if (saisie === null)
+              break;
+            const groupe = saisie.toLowerCase();
+            const trouves = filtrerParGroupe(donnees, groupe);
+            console.log(`${trouves.length} espèce(s) du groupe ${groupe}:`);
+            console.log(listerPlants(trouves));
+            }else{ 
+              console.log(`Choix inconnu : retour au menu.`)
+            }
+            break;
+           }
+    
+      case '4': {
+        console.log(`--- Trier ---`);
+        console.log(`1. Par nombre de plants croissant`);
+        const sousChoix = await demander(`Votre choix: `);
+        if (sousChoix === null)
+          break;
+        if (sousChoix === '1') {
+        console.log (listerPlants(trierParNombrePlants(donnees)));
+     }else{ 
+      console.log(`Choix inconnu : retour au menu.`);
+     }
+     break;
+   }
+    
       case '5':
         throw new Error('TODO : pas encore codé');
      
