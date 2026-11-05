@@ -46,6 +46,12 @@ async function main() {
 
   try {
     switch (choix) {
+
+      case '0':
+      console.log(`Au revoir !`);
+      continuer = false;
+      break;
+
       case '1': { 
         console.log(`--- Ajouter un plant ---`);
         const id = (await demander(`Code du plant (ex. N11) :`)).toUpperCase();
@@ -66,8 +72,9 @@ async function main() {
       console.log(`Plant $(id) ajouté. L'inventaire compte ${donnees.length} espèce(s).`);
       console.log(formaterPlant(plantAjout));
      }
-      break;
+      
     }
+    break;
 
       case '2': 
       console.log(listerPlants(donnees));
@@ -80,13 +87,13 @@ async function main() {
         console.log('2. Par nom commun');
         console.log("3.espèces d'un groupe botanique");
         const sousChoix = await demander('Votre choix : ')
-        if (sousChoix === null) 
-        break;
+        // if (sousChoix === null){break} 
+        
 
         if (sousChoix === '1'){
           const saisie = await demander('code : ');
-          if (saisie === null)
-            break;
+          // if (saisie === null)
+          //   break;
           const code = saisie.toUpperCase();
           const plant = trouverParId(donnees, code);
           if (plant) {
@@ -96,16 +103,16 @@ async function main() {
           }
            }else if (sousChoix === '2') {
             const saisie = await demander(`Nom ou partie du nom : `);
-            if (saisie === null)
-              break;
+            // if (saisie === null)
+            //   break;
             const texte = saisie.toLowerCase();
             const trouves = rechercherParNom(donnees, texte);
             console.log(`${trouves.length} espèce(s) dont le nom contient « ${texte} » :`);
             console.log(listerPlants(trouves));
            }else if (sousChoix === '3') {
             const saisie = await demander(`Groupe(angiosperme ou gymnosperme):`);
-            if (saisie === null)
-              break;
+            // if (saisie === null)
+            //   break;
             const groupe = saisie.toLowerCase();
             const trouves = filtrerParGroupe(donnees, groupe);
             console.log(`${trouves.length} espèce(s) du groupe ${groupe}:`);
@@ -113,22 +120,24 @@ async function main() {
             }else{ 
               console.log(`Choix inconnu : retour au menu.`)
             }
-            break;
+            
            }
+           break;
     
       case '4': {
         console.log(`--- Trier ---`);
         console.log(`1. Par nombre de plants croissant`);
         const sousChoix = await demander(`Votre choix: `);
-        if (sousChoix === null)
-          break;
+        // if (sousChoix === null)
+        //   break;
         if (sousChoix === '1') {
         console.log (listerPlants(trierParNombrePlants(donnees)));
      }else{ 
       console.log(`Choix inconnu : retour au menu.`);
      }
-     break;
+     
    }
+   break;
     
       case '5': {
         const parGroupe = syntheseParGroupe(donnees);
@@ -155,15 +164,13 @@ async function main() {
       console.log(` ${plant.id} | ${plant.nomCommun} | ${plant.groupe} | ${plant.nombrePlants} plants | ${plant.dateReleve}`);
      }
     console.log(`Rappel : le seuil de ${SEUIL_STOCK_FAIBLE} plants est un repère pédagogique de suivi, pas une recommandation de production.`);
-    break;
+    
   }
+  break
      
       
       
-      case 'O':
-      console.log(`Au revoir !`);
-      continuer = false;
-      break;
+      
 
       default:
         console.log(`Choix inconnu: « ${choix} ».Tapez un chiffre du menu.`);
