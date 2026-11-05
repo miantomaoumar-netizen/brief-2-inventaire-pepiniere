@@ -14,11 +14,14 @@ Les lignes à 10 ou moins sont N09(pin) et N10(cycas) : 8 + 10 = 18 plants
 
 | Action | Attendu | Obtenu | Testeur |
 | --- | --- | --- | --- |
-| ✏️ | | | |
-| ✏️ | | | |
-| ✏️ | | | |
-| ✏️ | | | |
-| ✏️ | | | |
-| ✏️ | | | |
+| Ajouter plant N11 valide | Plant ajouté | Plant 011 ajouté,l'inventaire compte 11 espèce(s) | moi |
+| Ajouter N01 valide | le Plant est refusé | Cet id existe déja |moi |
+|Voir la liste de l'inventaire |Liste de l'inventaire |la liste de l'inventaire et les ajouts |moi |
+| Rechercher par nom de l'espèce | les infos de l'èspece |l'espèce cherché | moi |
+| Trier les nombres de plants| trier par nombre de plants croissant |le nombre de plants croissant | moi |
+| Synthèse des quantités | informations sur notre inventaire | synthèse de l'inventaire | moi |
 
-**Sur un autre poste** (`git clone`, `node app.js`, `npm test`, en suivant le README) : ✏️
+**Sur un autre poste** (`git clone`, `node app.js`, `npm test`, en suivant le README) : 
+Kamagate Salia
+Kone Pagadjoufougou
+Toure Emmannuel
